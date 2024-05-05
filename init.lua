@@ -157,6 +157,8 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open ' })
+vim.keymap.set('n', '<leader>pV', vim.cmd.Rex, { desc = 'Open ' })
 -- Exit insert mode easily with jk pressed quickly together.
 vim.keymap.set('i', 'jk', '<Esc>')
 
@@ -889,7 +891,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
