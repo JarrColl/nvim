@@ -102,7 +102,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -157,9 +157,21 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open ' })
-vim.keymap.set('n', '<leader>pV', vim.cmd.Rex, { desc = 'Open ' })
--- Exit insert mode easily with jk pressed quickly together.
+-- Netrw Keymaps
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open netrw.' })
+vim.keymap.set('n', '<leader>pV', vim.cmd.Rex, { desc = 'Open return to/from netrw.' })
+
+-- Move within wrapped lines.
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+
+-- Copy to & Paste from os clipboard
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>P', '"+P')
+
+-- Exit insert mode easily with jk pressed quickly in succession.
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -736,10 +748,9 @@ require('lazy').setup({
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
-
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<C-CR>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
