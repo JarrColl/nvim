@@ -10,10 +10,10 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- Copy to & Paste from os clipboard
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>Y', '"+Y')
-vim.keymap.set('n', '<leader>p', '"+p')
-vim.keymap.set('n', '<leader>P', '"+P')
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 
 -- Exit insert mode easily with jk pressed quickly in succession.
 vim.keymap.set('i', 'jk', '<Esc>')

@@ -247,6 +247,7 @@ require('lazy').setup({
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -542,8 +543,8 @@ require('lazy').setup({
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<C-CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping.confirm { select = true },
+          ['<C-CR>'] = cmp.mapping.confirm { select = true },
+          --['<Tab>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
@@ -672,8 +673,17 @@ require('lazy').setup({
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
+    dependencies = {
+      {
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function()
+          require('treesitter-context').setup {
+            max_lines = 1,
+          }
+        end,
+      },
+    },
   },
-
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.

@@ -20,8 +20,14 @@ vim.opt.showmode = false
 --  See `:help 'clipboard'`
 -- vim.opt.clipboard = 'unnamedplus'
 
--- Enable break indent
+-- Enable break indent for wrapped text
 vim.opt.breakindent = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 
 -- Save undo history
 vim.opt.undofile = true
