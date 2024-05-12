@@ -373,6 +373,7 @@ require('lazy').setup({
             },
           },
         },
+        tsserver = {},
         texlab = {},
         grammarly = {
           filetypes = { 'text', 'tex', 'latex' },
@@ -416,6 +417,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettierd',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -463,6 +466,9 @@ require('lazy').setup({
         lua = { 'stylua' },
         --python = { 'ruff' },
         python = { 'isort', 'black' },
+        javascript = { 'prettierd' },
+        css = { 'prettierd' },
+        html = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
