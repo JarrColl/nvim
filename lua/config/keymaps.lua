@@ -2,12 +2,16 @@
 --  See `:help vim.keymap.set()`
 
 -- Netrw Keymaps
-vim.keymap.set('n', '<leader>pv', vim.cmd.Rex, { desc = 'Open netrw.' })
-vim.keymap.set('n', '<leader>pV', vim.cmd.Ex, { desc = 'open return to/from netrw.' })
+vim.keymap.set('n', '<leader>sp', vim.cmd.Rex, { desc = 'Open netrw.' })
+vim.keymap.set('n', '<leader>sP', vim.cmd.Ex, { desc = 'open return to/from netrw.' })
 
 -- Move within wrapped lines.
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
+
+-- Move selected lines up and down.
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Copy to & Paste from os clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
@@ -15,12 +19,17 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 
+-- Delete to the void
+vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
+
 -- Exit insert mode easily with jk pressed quickly in succession.
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+--TODO: set this up then uncomment
+--vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -33,6 +42,15 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.keymap.set('n', '<leader>k', '<cmd>cprev<CR>zz' {desc = 'Move to the previous quickfix item'})
 vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>zz', { desc = 'Move to the next quickfix item' })
 vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Move to the previous quickfix item' })
+
+-- Replace all of selected word.
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+
+
+
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -40,7 +58,6 @@ vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Move to the previous 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')

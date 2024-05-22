@@ -27,14 +27,27 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.autoindent = true
+
+-- vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- Replace swap files with undo history
+vim.opt.swapfile = false --TODO: Should I remove these two lines or not?
+vim.opt.backup = false
 
 -- Save undo history
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+
+-- Highlight all search results. These are on by default.
+-- vim.opt.hlsearch = true
+-- vim.opt.incsearch = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.termguicolors = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -54,7 +67,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣'}
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
