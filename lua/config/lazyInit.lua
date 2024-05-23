@@ -130,6 +130,16 @@ require('lazy').setup({
       -- it can fuzzy find! It's more than just a "file finder", it can search
       -- many different aspects of Neovim, your workspace, LSP, and more!
       --
+      --
+      --
+      --
+      --
+      --
+      --
+      --
+      --
+      --
+      --
       -- The easiest way to use Telescope, is to start by doing something like:
       --  :Telescope help_tags
       --
@@ -599,7 +609,6 @@ require('lazy').setup({
     end,
   },
   --TODO: https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
-  
   -- {'rose-pine/neovim', name = rose-pine, priority = 1000}
   { 'folke/tokyonight.nvim', priority = 1000 },
   { -- You can easily change to a different colorscheme.
