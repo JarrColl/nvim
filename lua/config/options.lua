@@ -20,6 +20,8 @@ vim.opt.showmode = false
 --  See `:help 'clipboard'`
 -- vim.opt.clipboard = 'unnamedplus'
 
+vim.opt.wrap = false
+
 -- Enable break indent for wrapped text
 vim.opt.breakindent = true
 

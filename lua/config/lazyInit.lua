@@ -180,7 +180,9 @@ require('lazy').setup({
 
       local builtin = require 'telescope.builtin'
 
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sf', function()
+        builtin.find_files { no_ignore = true }
+      end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = '[S]earch [G]it' })
       vim.keymap.set('n', '<leader>st', builtin.live_grep, { desc = '[S]earch [T]ext by Grep' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -437,7 +439,8 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'prettierd',
         'black',
-        'ruff',
+        'isort',
+        -- 'ruff',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -488,6 +491,7 @@ require('lazy').setup({
         javascript = { 'prettierd' },
         css = { 'prettierd' },
         html = { 'prettierd' },
+        json = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
