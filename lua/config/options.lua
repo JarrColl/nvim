@@ -22,6 +22,12 @@ vim.opt.showmode = false
 
 vim.opt.wrap = false
 
+-- Turn off insert comment on new line.
+-- vim.cmd "set formatoptions-=cro"
+-- vim.opt.formatoptions:remove "c"
+-- vim.opt.formatoptions:remove "r"
+-- -vim.opt.formatoptions:remove "o"
+
 -- Enable break indent for wrapped text
 vim.opt.breakindent = true
 

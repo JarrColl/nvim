@@ -1,9 +1,12 @@
 -- TODO: Add the buffers as visual tabs on top?
 -- TODO: New File tree thing? neotree or oil
 
+-- Learn LUA!! -- https://learnxinyminutes.com/docs/lua/
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
---
+
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -35,8 +38,6 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-
-  -- TODO: Setup fugitive instead?
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -317,6 +318,8 @@ require('lazy').setup({
           --  See `:help K` for why this keymap.
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
+          -- vim.keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { buffer = event.buf, desc = 'LSP: ' .. 'Show signature in insert mode' })
+          vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { buffer = event.buf, desc = 'LSP: ' .. 'Show signature in insert mode' })
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -382,16 +385,16 @@ require('lazy').setup({
         -- clangd = {},
         gopls = {},
         pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true, -- Using Ruff
-            },
-            python = {
-              analysis = {
-                ignore = { '*' },
-              },
-            },
-          },
+          -- settings = {
+          --   pyright = {
+          --     disableOrganizeImports = true, -- Using Ruff
+          --   },
+          --   python = {
+          --     analysis = {
+          --       ignore = { '*' },
+          --     },
+          --   },
+          -- },
         },
         tsserver = {},
         texlab = {},
@@ -537,6 +540,7 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
     },
     config = function()
       -- See `:help cmp`
@@ -572,7 +576,7 @@ require('lazy').setup({
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<C-CR>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-CR>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
@@ -608,6 +612,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'nvim_lsp_signature_help' },
         },
       }
     end,
