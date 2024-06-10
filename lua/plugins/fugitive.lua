@@ -25,7 +25,7 @@ return {
 
         -- rebase always
         map('<leader>gp', function()
-          vim.cmd.Git { 'pull', '--rebase' }
+          vim.cmd.Git 'pull --rebase'
         end, "pull with rebase.")
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
