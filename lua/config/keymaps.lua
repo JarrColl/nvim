@@ -10,8 +10,8 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- Move selected lines up and down.
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Copy to & Paste from os clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
@@ -20,7 +20,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 
 -- Delete to the void
-vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 -- Exit insert mode easily with jk pressed quickly in succession.
 vim.keymap.set('i', 'jk', '<Esc>')
@@ -44,12 +44,7 @@ vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>zz', { desc = 'Move to the next quic
 vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Move to the previous quickfix item' })
 
 -- Replace all of selected word.
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
-
-
-
-
+vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
