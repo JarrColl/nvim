@@ -2,8 +2,16 @@
 --  See `:help vim.keymap.set()`
 
 -- Netrw Keymaps
-vim.keymap.set('n', '<leader>sp', vim.cmd.Rex, { desc = 'Open netrw.' })
+vim.keymap.set('n', '<leader>sp', function()
+    if not pcall(vim.cmd.Rex) then
+        vim.cmd.Ex()
+    end
+end, { desc = 'Open netrw.' })
+
 vim.keymap.set('n', '<leader>sP', vim.cmd.Ex, { desc = 'open return to/from netrw.' })
+
+-- Delete till next word
+vim.keymap.set('n', 'X', 'dw')
 
 -- Move within wrapped lines.
 vim.keymap.set('n', 'j', 'gj')
@@ -46,13 +54,6 @@ vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Move to the previous 
 -- Replace all of selected word.
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -67,3 +68,33 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Terminal Maps
+local set = vim.opt_local
+
+-- Set local settings for terminal buffers
+vim.api.nvim_create_autocmd('TermOpen', {
+    group = vim.api.nvim_create_augroup('custom-term-open', {}),
+    callback = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+
+        set.number = false
+        set.relativenumber = false
+        set.scrolloff = 0
+
+        -- When the terminal is open, add a keymap to close it with the same key.
+        vim.keymap.set('n', '<c-,>', ':q<CR>', { buffer = bufnr, remap = false })
+    end,
+})
+
+-- Easily hit escape in terminal mode.
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+vim.keymap.set('n', '<c-,>', function()
+    vim.cmd.new()
+    vim.cmd.wincmd 'J'
+    vim.api.nvim_win_set_height(0, 15)
+    vim.wo.winfixheight = true
+    vim.cmd.term()
+end)

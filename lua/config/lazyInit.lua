@@ -616,34 +616,6 @@ require('lazy').setup({
             }
         end,
     },
-    --TODO: https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
-    -- {'rose-pine/neovim', name = rose-pine, priority = 1000}
-    { 'folke/tokyonight.nvim', priority = 1000 },
-    { -- You can easily change to a different colorscheme.
-        -- Change the name of the colorscheme plugin below, and then
-        -- change the command in the config to whatever the name of that colorscheme is.
-        --
-        -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-        'catppuccin/nvim',
-        name = 'catppuccin',
-        priority = 1000, -- Make sure to load this before all the other start plugins.
-        init = function()
-            -- Load the colorscheme here.
-            -- vim.cmd.colorscheme 'tokyonight-night'
-            vim.cmd.colorscheme 'catppuccin-mocha'
-
-            -- You can configure highlights by doing something like:
-            vim.cmd.hi 'Comment gui=none'
-
-            require('catppuccin').setup {
-                integrations = {
-                    harpoon = true,
-                    mason = true,
-                    which_key = true,
-                },
-            }
-        end,
-    },
 
     -- Highlight todo, notes, etc in comments
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
