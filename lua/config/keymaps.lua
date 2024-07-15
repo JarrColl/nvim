@@ -32,6 +32,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 -- Exit insert mode easily with jk pressed quickly in succession.
 vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('i', 'JK', '<Esc>')
+vim.keymap.set('i', 'Jk', '<Esc>')
+vim.keymap.set('i', 'jK', '<Esc>')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
