@@ -1,4 +1,5 @@
-return {
+return {}
+--[[ return {
     {
         'mfussenegger/nvim-dap',
         dependencies = { 'rcarriga/nvim-dap-ui' },
@@ -95,4 +96,4 @@ return {
         end,
     },
     --TODO: Need this?? https://github.com/theHamsta/nvim-dap-virtual-text
-}
+} ]]
