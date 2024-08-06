@@ -1,5 +1,4 @@
 -- TODO: Add the buffers as visual tabs on top?
--- TODO: New File tree thing? neotree or oil
 
 -- Learn LUA!! -- https://learnxinyminutes.com/docs/lua/
 
@@ -697,8 +696,7 @@ require('lazy').setup({
             -- with nvim-treesitter. You should go explore a few and see what interests you:
             --
             --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-            --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-            --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+            --TODO:    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
         end,
         dependencies = {
             {
