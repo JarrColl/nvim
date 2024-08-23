@@ -137,16 +137,6 @@ require('lazy').setup({
             -- it can fuzzy find! It's more than just a "file finder", it can search
             -- many different aspects of Neovim, your workspace, LSP, and more!
             --
-            --
-            --
-            --
-            --
-            --
-            --
-            --
-            --
-            --
-            --
             -- The easiest way to use Telescope, is to start by doing something like:
             --  :Telescope help_tags
             --
@@ -332,8 +322,6 @@ require('lazy').setup({
                     --  For example, in C this would take you to the header.
                     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-
-
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.
                     --    See `:help CursorHold` for information about when this is executed
@@ -393,8 +381,8 @@ require('lazy').setup({
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
             local servers = {
                 -- clangd = {},
-                gopls = {},
-                pyright = {
+                -- gopls = {},
+                -- pyright = {
                     -- settings = {
                     --   pyright = {
                     --     disableOrganizeImports = true, -- Using Ruff
@@ -405,7 +393,7 @@ require('lazy').setup({
                     --     },
                     --   },
                     -- },
-                },
+                -- },
                 tsserver = {},
                 texlab = {},
                 grammarly = {
@@ -648,6 +636,13 @@ require('lazy').setup({
             -- - sd'   - [S]urround [D]elete [']quotes
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require('mini.surround').setup()
+
+            local mini_files = require 'mini.files'
+            mini_files.setup {
+                mappings = { close = '\\' },
+            }
+
+            vim.keymap.set('n', '\\', mini_files.open)
 
             -- Simple and easy statusline.
             --  You could remove this setup call if you don't like it,

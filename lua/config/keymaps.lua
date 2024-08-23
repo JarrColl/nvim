@@ -1,5 +1,8 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+--  Keymaps to remember
+--  : -> ctrl-f
+--  q -> :
 
 -- Netrw Keymaps
 vim.keymap.set('n', '<leader>sp', function()
@@ -12,6 +15,9 @@ vim.keymap.set('n', '<leader>sP', vim.cmd.Ex, { desc = 'open return to/from netr
 
 -- Delete till next word
 vim.keymap.set('n', 'X', 'dw')
+
+-- Search and replace selected text.
+vim.keymap.set('v', '<C-r>', '"hy:%s/<C-r>h//g<left><left>')
 
 -- Move within wrapped lines.
 vim.keymap.set('n', 'j', 'gj')
