@@ -158,11 +158,11 @@ require('lazy').setup({
                 -- You can put your default mappings / updates / etc. in here
                 --  All the info you're looking for is in `:help telescope.setup()`
                 --
-                -- defaults = {
-                --   mappings = {
-                --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-                --   },
-                -- },
+                defaults = {
+                  mappings = {
+                    i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+                  },
+                },
                 -- pickers = {}
                 extensions = {
                     ['ui-select'] = {
@@ -310,7 +310,7 @@ require('lazy').setup({
                     -- or a suggestion from your LSP for this to activate.
                     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-                    map('<leader>hr', vim.lsp.buf.document_highlight, '[H]ighlight [R]eference')
+                    -- map('<leader>hr', vim.lsp.buf.document_highlight, '[H]ighlight [R]eference')
 
                     -- Opens a popup that displays documentation about the word under your cursor
                     --  See `:help K` for why this keymap.
