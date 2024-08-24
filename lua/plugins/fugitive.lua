@@ -19,12 +19,12 @@ return {
                     vim.keymap.set('n', keys, func, { buffer = bufnr, remap = false, desc = 'Fugitive: ' .. desc })
                 end
 
-                map('<leader>gP', function()
+                map('gP', function()
                     vim.cmd.Git 'push'
                 end, 'Git Push')
 
                 -- rebase always
-                map('<leader>gp', function()
+                map('gp', function()
                     vim.cmd.Git 'pull --rebase'
                 end, 'pull with rebase.')
 
