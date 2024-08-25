@@ -159,9 +159,9 @@ require('lazy').setup({
                 --  All the info you're looking for is in `:help telescope.setup()`
                 --
                 defaults = {
-                  mappings = {
-                    i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-                  },
+                    mappings = {
+                        i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+                    },
                 },
                 -- pickers = {}
                 extensions = {
@@ -383,16 +383,16 @@ require('lazy').setup({
                 -- clangd = {},
                 -- gopls = {},
                 -- pyright = {
-                    -- settings = {
-                    --   pyright = {
-                    --     disableOrganizeImports = true, -- Using Ruff
-                    --   },
-                    --   python = {
-                    --     analysis = {
-                    --       ignore = { '*' },
-                    --     },
-                    --   },
-                    -- },
+                -- settings = {
+                --   pyright = {
+                --     disableOrganizeImports = true, -- Using Ruff
+                --   },
+                --   python = {
+                --     analysis = {
+                --       ignore = { '*' },
+                --     },
+                --   },
+                -- },
                 -- },
                 tsserver = {},
                 texlab = {},
