@@ -640,6 +640,10 @@ require('lazy').setup({
             }
 
             vim.keymap.set('n', '\\', mini_files.open)
+            vim.keymap.set('n', '|', function()
+                mini_files.open(vim.api.nvim_buf_get_name(0))
+                mini_files.reveal_cwd()
+            end)
 
             -- Simple and easy statusline.
             --  You could remove this setup call if you don't like it,
