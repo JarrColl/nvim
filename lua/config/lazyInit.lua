@@ -382,18 +382,7 @@ require('lazy').setup({
             local servers = {
                 -- clangd = {},
                 -- gopls = {},
-                -- pyright = {
-                -- settings = {
-                --   pyright = {
-                --     disableOrganizeImports = true, -- Using Ruff
-                --   },
-                --   python = {
-                --     analysis = {
-                --       ignore = { '*' },
-                --     },
-                --   },
-                -- },
-                -- },
+                -- pyright = {},
                 tsserver = {},
                 texlab = {},
                 grammarly = {
@@ -505,6 +494,7 @@ require('lazy').setup({
 
     { -- Autocompletion
         'hrsh7th/nvim-cmp',
+        priority = 100,
         event = 'InsertEnter',
         dependencies = {
             -- Snippet Engine & its associated nvim-cmp source
@@ -536,17 +526,24 @@ require('lazy').setup({
             -- Adds other completion capabilities.
             --  nvim-cmp does not ship with all sources by default. They are split
             --  into multiple repos for maintenance purposes.
+            'onsails/lspkind.nvim',
+            --'hrsh7th/cmp-buffer???'
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lsp-signature-help',
         },
         config = function()
+            local lspkind = require 'lspkind'
+
             -- See `:help cmp`
             local cmp = require 'cmp'
             local luasnip = require 'luasnip'
             luasnip.config.setup {}
 
             cmp.setup {
+                formatting = {
+                    format = lspkind.cmp_format {},
+                },
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
