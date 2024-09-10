@@ -636,7 +636,19 @@ require('lazy').setup({
 
             local mini_files = require 'mini.files'
             mini_files.setup {
-                mappings = { close = '\\' },
+                mappings = {
+                    close = '\\',
+                    go_in = 'L',
+                    go_in_plus = '<CR>',
+                    go_out = 'H',
+                    go_out_plus = '<c-H>',
+                    reset = '<BS>',
+                    reveal_cwd = '@',
+                    show_help = 'g?',
+                    synchronize = '=',
+                    trim_left = '<',
+                    trim_right = '>',
+                },
             }
 
             vim.keymap.set('n', '\\', mini_files.open)
