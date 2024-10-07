@@ -382,7 +382,14 @@ require('lazy').setup({
             local servers = {
                 -- clangd = {},
                 -- gopls = {},
-                -- pyright = {},
+                basedpyright = {
+                    capabilities = capabilities,
+                    settings = {
+                        basedpyright = {
+                            typeCheckingMode = 'standard',
+                        },
+                    },
+                },
                 tsserver = {},
                 texlab = {},
                 grammarly = {

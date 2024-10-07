@@ -31,6 +31,8 @@ require 'config.keymaps'
 
 require 'config.autocmd'
 
+require 'config.diagnostics'
+
 require 'config.lazyInit'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
