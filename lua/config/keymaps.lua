@@ -19,10 +19,6 @@ vim.keymap.set('n', 'X', 'dw')
 -- Search and replace selected text.
 vim.keymap.set('v', '<C-r>', '"hy:%s/<C-r>h//g<left><left>')
 
--- Move within wrapped lines.
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
-
 -- Move selected lines up and down.
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
