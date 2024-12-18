@@ -5,7 +5,7 @@ return {
     {
         'mfussenegger/nvim-dap',
         dependencies = { 'rcarriga/nvim-dap-ui' },
-        event = "VeryLazy",
+        event = "VeryLazy", -- TODO: TEST THIS
         config = function()
             local dap = require 'dap'
 
