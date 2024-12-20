@@ -48,7 +48,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, { desc = 'Open diagnostic [Q]uickfix list' }) --NOTE: previously used setloclist, ensure it isn't broken.
 
 -- Quickfix List Keymaps
 -- vim.keymap.set('n', '<leader>j', '<cmd>cnext<CR>zz', {desc = 'Move to the next quickfix item'})
@@ -59,48 +59,9 @@ vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz', { desc = 'Move to the previous 
 -- Replace all of selected word.
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 -- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Terminal Maps
-local set = vim.opt_local
-
--- Set local settings for terminal buffers
-vim.api.nvim_create_autocmd('TermOpen', {
-    group = vim.api.nvim_create_augroup('custom-term-open', {}),
-    callback = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-
-        set.number = false
-        set.relativenumber = false
-        set.scrolloff = 0
-
-        -- When the terminal is open, add a keymap to close it with the same key.
-        vim.keymap.set('n', '<c-,>', ':q<CR>', { buffer = bufnr, remap = false })
-    end,
-})
-
--- Easily hit escape in terminal mode.
--- vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
-vim.keymap.set('t', '<c-\\><c-\\>', '<c-\\><c-n>')
-
--- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set('n', '<c-,>', function()
-    vim.cmd.new()
-    vim.cmd.wincmd 'J'
-    vim.api.nvim_win_set_height(0, 15)
-    vim.wo.winfixheight = true
-    vim.cmd.term()
-end)
