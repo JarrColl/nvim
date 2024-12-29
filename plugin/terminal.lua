@@ -1,5 +1,6 @@
 -- Easily hit escape in terminal mode.
-vim.keymap.set('t', '<c-\\><c-\\>', '<c-\\><c-n>')
+vim.keymap.set('t', '<ESC><ESC>', '<c-\\><c-n>')
+-- vim.keymap.set('t', '<c-\\><c-\\>', '<c-\\><c-n>')
 
 local state = {
     window = {
@@ -50,11 +51,13 @@ local toggle_terminal = function()
     end
 end
 
--- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set({ 'n', 't' }, '<c-,>', function()
+vim.api.nvim_create_user_command('SplitTerm', function()
     toggle_terminal()
-end)
+end, {})
 
+
+-- Open a terminal at the bottom of the screen with a fixed height.
+vim.keymap.set({ 'n', 'i', 't' }, '<c-\\>', "<cmd>SplitTerm<CR>", {remap=true})
 -- Terminal Maps
 -- local set = vim.opt_local
 --
