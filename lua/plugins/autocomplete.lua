@@ -1,6 +1,3 @@
---TODO: TRY CHanging from nvim-cmp to blink.cmp it is faster.
--- What is friendly snippets plugin?
-
 return { --TODO: Do I need luasnip with this?
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
@@ -13,11 +10,13 @@ return { --TODO: Do I need luasnip with this?
     ---@type blink.cmp.Config
     opts = {
         keymap = {
-           preset = 'default',
-           ['<C-l>'] = { 'snippet_forward', 'fallback' },
-           ['<C-h>'] = { 'snippet_backward', 'fallback' },
-    },
+            preset = 'default',
+            ['<C-l>'] = { 'snippet_forward', 'fallback' },
+            ['<C-h>'] = { 'snippet_backward', 'fallback' },
 
+            ['<Tab>'] = {},
+            ['<S-Tab>'] = {},
+        },
 
         appearance = {
             -- Sets the fallback highlight groups to nvim-cmp's highlight groups

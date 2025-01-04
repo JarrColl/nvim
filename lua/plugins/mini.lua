@@ -16,27 +16,27 @@ return { -- Collection of various small independent plugins/modules
         -- - sr)'  - [S]urround [R]eplace [)] [']
         require('mini.surround').setup()
 
-        local mini_files = require 'mini.files'
-        mini_files.setup {
-            mappings = {
-                close = '\\',
-                go_in = 'L',
-                go_in_plus = '<CR>',
-                go_out = 'H',
-                go_out_plus = '<c-H>',
-                reset = '<BS>',
-                reveal_cwd = '@',
-                show_help = 'g?',
-                synchronize = '=',
-                trim_left = '<',
-                trim_right = '>',
-            },
-        }
-        vim.keymap.set('n', '\\', mini_files.open)
-        vim.keymap.set('n', '|', function()
-            mini_files.open(vim.api.nvim_buf_get_name(0))
-            mini_files.reveal_cwd()
-        end)
+        -- local mini_files = require 'mini.files'
+        -- mini_files.setup {
+        --     mappings = {
+        --         close = '\\',
+        --         go_in = 'L',
+        --         go_in_plus = '<CR>',
+        --         go_out = 'H',
+        --         go_out_plus = '<c-H>',
+        --         reset = '<BS>',
+        --         reveal_cwd = '@',
+        --         show_help = 'g?',
+        --         synchronize = '=',
+        --         trim_left = '<',
+        --         trim_right = '>',
+        --     },
+        -- }
+        -- vim.keymap.set('n', '\\', mini_files.open)
+        -- vim.keymap.set('n', '|', function()
+        --     mini_files.open(vim.api.nvim_buf_get_name(0))
+        --     mini_files.reveal_cwd()
+        -- end)
 
         -- Simple and easy statusline.
         --  You could remove this setup call if you don't like it,
