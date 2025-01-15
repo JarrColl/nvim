@@ -154,7 +154,7 @@ return { -- LSP Configuration & Plugins
             },
             clangd = {
                 -- capabilities = capabilities,
-                cmd = { "clangd", "--pretty", "--clang-tidy", "--header-insertion=iwyu", "--enable-config"}
+                cmd = { "clangd", "--clang-tidy", "--header-insertion=iwyu", "--enable-config", "--completion-style=detailed", "--all-scopes-completion", "-j=2", "--fallback-style=WebKit"}
             },
             lua_ls = {
                 capabilities = capabilities,
