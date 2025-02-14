@@ -20,8 +20,8 @@ vim.keymap.set('n', 'X', 'dw')
 vim.keymap.set('v', '<C-r>', '"hy:%s/<C-r>h//g<left><left>')
 
 -- Move selected lines up and down.
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+-- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+-- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Copy to & Paste from os clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
