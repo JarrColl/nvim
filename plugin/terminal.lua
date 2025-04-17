@@ -7,7 +7,7 @@ local state = {
         buf = -1,
         win = -1,
     },
-    mode = 't',
+    -- mode = 't',
 }
 
 local function create_window(buf)
@@ -16,7 +16,7 @@ local function create_window(buf)
         l_buf = buf
     else
         l_buf = vim.api.nvim_create_buf(false, true)
-        state.mode = 't'
+        -- state.mode = 't'
     end
 
     local win_config = {
@@ -40,13 +40,13 @@ local toggle_terminal = function()
             vim.cmd.terminal()
         end
 
-        print(state.mode)
-        if state.mode == 't' then
-            vim.cmd.startinsert()
-        end
+        -- print(state.mode)
+        -- if state.mode == 't' then
+        vim.cmd.startinsert()
+        -- end
     else
         vim.api.nvim_set_current_win(state.window.win)
-        state.mode = vim.fn.mode()
+        -- state.mode = vim.fn.mode()
         vim.api.nvim_win_hide(state.window.win)
     end
 end
