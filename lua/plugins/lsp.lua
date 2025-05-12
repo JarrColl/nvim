@@ -149,9 +149,16 @@ return { -- LSP Configuration & Plugins
             },
             ts_ls = {},
             texlab = {},
-            grammarly = {
-                filetypes = { 'text', 'tex', 'latex' },
+            ltex = {
+                settings = {
+                    ltex = {
+                        language = "en-AU"
+                    }
+                }
             },
+            -- grammarly = {
+            --     filetypes = { 'text', 'tex', 'latex' },
+            -- },
             clangd = {
                 -- capabilities = capabilities,
                 cmd = { "clangd", "--clang-tidy", "--header-insertion=iwyu", "--enable-config", "--completion-style=detailed", "--all-scopes-completion", "-j=2", "--fallback-style=WebKit"}
