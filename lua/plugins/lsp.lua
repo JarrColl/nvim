@@ -175,6 +175,14 @@ return { -- LSP Configuration & Plugins
                     },
                 },
             },
+            arduino_language_server = {
+                settings = {
+                    arduino = {
+                        cli_path = "/usr/local/bin/arduino-cli", -- Make sure this is correct
+                        config_path = "/home/jarron/.arduino15/arduino-cli.yaml",
+                    },
+                }
+            }
         }
 
         require('mason').setup()
