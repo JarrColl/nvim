@@ -128,9 +128,7 @@ return { -- LSP Configuration & Plugins
 
         -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-        -- Enable the following language servers
-        --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-        --
+
         --  Add any additional override configuration in the following tables. Available keys are:
         --  - cmd (table): Override the default command used to start the server
         --  - filetypes (table): Override the default list of associated filetypes for the server
@@ -138,7 +136,6 @@ return { -- LSP Configuration & Plugins
         --  - settings (table): Override the default settings passed when initializing the server.
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local servers = {
-            -- gopls = {},
             basedpyright = {
                 capabilities = capabilities,
                 settings = {
@@ -147,8 +144,6 @@ return { -- LSP Configuration & Plugins
                     },
                 },
             },
-            ts_ls = {},
-            texlab = {},
             ltex = {
                 settings = {
                     ltex = {
@@ -156,9 +151,9 @@ return { -- LSP Configuration & Plugins
                     }
                 }
             },
-            -- grammarly = {
-            --     filetypes = { 'text', 'tex', 'latex' },
-            -- },
+            grammarly = {
+                filetypes = { 'text', 'tex', 'latex' },
+            },
             clangd = {
                 -- capabilities = capabilities,
                 cmd = { "clangd", "--clang-tidy", "--header-insertion=iwyu", "--enable-config", "--completion-style=detailed", "--all-scopes-completion", "-j=2", "--fallback-style=WebKit"}
@@ -187,16 +182,17 @@ return { -- LSP Configuration & Plugins
 
         require('mason').setup()
 
-        -- You can add other tools here that you want Mason to install
-        -- for you, so that they are available from within Neovim.
-        local ensure_installed = vim.tbl_keys(servers or {})
-        vim.list_extend(ensure_installed, {
+        local ensure_installed = {
+            -- Language Servers.
+            'basedpyright',
+            'lua_ls',
+
+            -- Formatters & Tools.
             'stylua',
             'prettierd',
             'black',
             'isort',
-            -- 'ruff',
-        })
+        }
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
         require('mason-lspconfig').setup {

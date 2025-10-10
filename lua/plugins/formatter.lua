@@ -31,6 +31,7 @@ return {
             css = { 'prettierd' },
             html = { 'prettierd' },
             json = { 'prettierd' },
+            yaml = { 'prettierd' },
             xml = { 'xmlformatter' }
         },
     },
