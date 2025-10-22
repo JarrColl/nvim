@@ -1,6 +1,3 @@
---TODO: check out debug.lua in kickstart folder
-
--- return {}
 return {
     {
         'mfussenegger/nvim-dap',
