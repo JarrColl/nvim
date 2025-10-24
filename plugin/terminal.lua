@@ -57,7 +57,7 @@ end, {})
 
 
 -- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set({ 'n', 'i', 't' }, '<c-\\>', "<cmd>SplitTerm<CR>", {remap=true})
+vim.keymap.set({ 'n', 'i', 't', 'v' }, '<c-\\>', "<cmd>SplitTerm<CR>", {remap=true})
 -- Terminal Maps
 -- local set = vim.opt_local
 --
