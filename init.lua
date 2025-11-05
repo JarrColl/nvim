@@ -26,9 +26,7 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 require 'config.options'
-
 require 'config.keymaps'
-
 
 require 'config.autocmd'
 
@@ -37,5 +35,6 @@ require 'config.diagnostics'
 require 'config.lazyInit'
 require 'config.commands'
 
+require 'config.colourscheme'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
