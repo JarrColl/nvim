@@ -50,7 +50,9 @@ return {
         { "<leader>gsb", function() Snacks.picker.git_branches() end, desc = "[G]it [S]earch [B]ranches" },
         { "<leader>gst", function() Snacks.picker.git_grep() end, desc = "[G]it [S]earch [T]ext" },
         { "<leader>gsd", function() Snacks.picker.git_diff() end, desc = "[G]it [S]earch [D]iff" },
-        { "<leader>gsl", function() Snacks.picker.git_log() end, desc = "[G]it [S]earch [L]og" },
+        { "<leader>gal", function() Snacks.picker.git_log() end, desc = "[G]it [S]earch [L]og" },
+        { "<leader>gfl", function() Snacks.picker.git_log_file() end, desc = "[G]it [S]earch [L]og" },
+        { "<leader>gll", function() Snacks.picker.git_log_line() end, desc = "[G]it [S]earch [L]og" },
 
         -- Misc
         { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
