@@ -1,7 +1,25 @@
--- Turn on underlines for diagnostics.
-vim.diagnostic.config { underline = true }
-vim.diagnostic.config { signs = true }
-vim.diagnostic.config { virtual_text = false } -- Replaced by the below plugin.
+vim.diagnostic.config {
+    severity_sort = true,
+    float = { border = 'rounded', source = 'if_many' },
+    -- underline = { severity = vim.diagnostic.severity.ERROR },
+    underline = true,
+    signs = true,
+
+    -- virtual_text = {
+    --     source = 'if_many',
+    --     spacing = 2,
+    --     format = function(diagnostic)
+    --         local diagnostic_message = {
+    --             [vim.diagnostic.severity.ERROR] = diagnostic.message,
+    --             [vim.diagnostic.severity.WARN] = diagnostic.message,
+    --             [vim.diagnostic.severity.INFO] = diagnostic.message,
+    --             [vim.diagnostic.severity.HINT] = diagnostic.message,
+    --         }
+    --         return diagnostic_message[diagnostic.severity]
+    --     end,
+    -- },
+    virtual_text = false,
+}
 
 -- SHOW THE HIGHEST PRIORITY DIAGNOSTICS ON THE SIGN SECTION
 -- Create a custom namespace. This will aggregate signs from all other
@@ -10,7 +28,6 @@ vim.diagnostic.config { virtual_text = false } -- Replaced by the below plugin.
 local ns = vim.api.nvim_create_namespace 'my_namespace'
 -- Get a reference to the original signs handler
 local orig_signs_handler = vim.diagnostic.handlers.signs
-
 -- Override the built-in signs handler
 vim.diagnostic.handlers.signs = {
     show = function(_, bufnr, _, opts)
