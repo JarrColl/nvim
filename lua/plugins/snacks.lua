@@ -50,17 +50,17 @@ return {
         { "<leader>gsb", function() Snacks.picker.git_branches() end, desc = "[G]it [S]earch [B]ranches" },
         { "<leader>gst", function() Snacks.picker.git_grep() end, desc = "[G]it [S]earch [T]ext" },
         { "<leader>gsd", function() Snacks.picker.git_diff() end, desc = "[G]it [S]earch [D]iff" },
-        { "<leader>gal", function() Snacks.picker.git_log() end, desc = "[G]it [S]earch [L]og" },
-        { "<leader>gfl", function() Snacks.picker.git_log_file() end, desc = "[G]it [S]earch [L]og" },
-        { "<leader>gll", function() Snacks.picker.git_log_line() end, desc = "[G]it [S]earch [L]og" },
+        { "<leader>gal", function() Snacks.picker.git_log() end, desc = "[G]it [A]ll [L]ogs" },
+        { "<leader>gfl", function() Snacks.picker.git_log_file() end, desc = "[G]it [F]ile [L]ogs" },
+        { "<leader>gll", function() Snacks.picker.git_log_line() end, desc = "[G]it [L]ine [L]ogs" },
 
         -- Misc
-        { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
+        { "<leader>sM", function() Snacks.picker.man() end, desc = "[S]earch [M]an Pages" },
 
         -- ######### LSP ########
         picker = {},
         { "gd", function() Snacks.picker.lsp_definitions() end, desc = "[G]oto [D]efinition" },
-        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "[G]oto [D]eclaration" },
         { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "[G]oto [R]eferences" },
         { "gI", function() Snacks.picker.lsp_implementations() end, desc = "[G]oto [I]mplementation" },
         { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "[G]oto T[y]pe Definition" },
@@ -70,7 +70,7 @@ return {
         { "<leader>ws", function() Snacks.picker.lsp_workspace_symbols() end, desc = "[W]orkspace [S]ymbols" },
 
         -- ###### Git Browse ######
-        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
+        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "[G]it [B]rowse", mode = { "n", "v" } },
 
         -- Lazygit
         { "<leader>lg", function() Snacks.lazygit() end, desc = "[L]azy [G]it", mode = { "n", "v" } },
