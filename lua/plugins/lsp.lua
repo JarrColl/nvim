@@ -2,18 +2,28 @@ return { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
         -- Automatically install LSPs and related tools to stdpath for Neovim
-        { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-        'williamboman/mason-lspconfig.nvim',
+        { 'mason-org/mason.nvim', opts = {} }, -- NOTE: Must be loaded before dependants
+        'mason-org/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         'saghen/blink.cmp',
 
         -- Useful status updates for LSP.
-        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         { 'j-hui/fidget.nvim', opts = {} },
+        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 
-        -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+        -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
         -- used for completion, annotations and signatures of Neovim apis
-        { 'folke/neodev.nvim', opts = {} }, -- TODO: Change to lazydev?
+        {
+            'folke/lazydev.nvim',
+            ft = 'lua',
+            opts = {
+                library = {
+                    -- See the configuration section for more details
+                    -- Load luvit types when the `vim.uv` word is found
+                    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                },
+            },
+        },
     },
     config = function()
  

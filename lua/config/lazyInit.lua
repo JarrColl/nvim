@@ -8,7 +8,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+    'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
     -- Use `opts = {}` to force a plugin to be loaded.
     --
@@ -16,8 +16,7 @@ require('lazy').setup({
     --    require('Comment').setup({})
 
     -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim', event = "VeryLazy", opts = {} },
-
+    { 'numToStr/Comment.nvim', event = 'VeryLazy', opts = {} },
 
     -- This is often very useful to both group configuration, as well as handle
     -- lazy loading plugins that don't need to be loaded immediately at startup.
