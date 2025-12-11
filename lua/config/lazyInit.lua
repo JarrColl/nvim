@@ -12,7 +12,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup({
-    'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+    { 'NMAC427/guess-indent.nvim', opts = {} }, -- Detect tabstop and shiftwidth automatically
 
     -- Use `opts = {}` to force a plugin to be loaded.
     --
