@@ -2,7 +2,15 @@ return {
     {
         'mfussenegger/nvim-dap',
         dependencies = { 'rcarriga/nvim-dap-ui' },
-        event = "VeryLazy", -- TODO: TEST THIS
+        -- lazy = true,
+        -- keys = {
+        --     {
+        --         '<leader>b',
+        --         function()
+        --             require('dap').toggle_breakpoint()
+        --         end,
+        --     },
+        -- },
         config = function()
             local dap = require 'dap'
 
@@ -90,6 +98,7 @@ return {
     },
     {
         'rcarriga/nvim-dap-ui',
+        -- lazy = true,
         dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
         config = function()
             local dap, dapui = require 'dap', require 'dapui'
