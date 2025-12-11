@@ -27,6 +27,7 @@ return {
         --####### Picker ########
         { "<leader>sf", function() Snacks.picker.files() end, desc = "Search Files" },
         { "<leader>sg", function() Snacks.picker.git_files() end, desc = "Search Git Files" },
+        { "<leader><leader>", function() Snacks.picker.buffers() end, desc = "Buffers" },
 
         -- Grep
         { "<leader>st", function() Snacks.picker.grep() end, desc = "Grep" },
