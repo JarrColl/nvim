@@ -10,7 +10,7 @@ return {
     },
     cmd = 'Neotree',
     keys = {
-        { '\\', ':Neotree focus<CR>', { desc = 'NeoTree reveal' } },
+        { '<leader>\\', ':Neotree toggle<CR>', { desc = 'NeoTree reveal' } },
     },
     config = function()
         -- vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
@@ -31,7 +31,7 @@ return {
                 window = {
                     -- position = 'current',
                     mappings = {
-                        ['\\'] = 'close_window',
+                        ['<leader>\\'] = 'close_window',
                         ['l'] = 'open',
                     },
                 },
