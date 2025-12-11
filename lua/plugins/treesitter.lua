@@ -44,7 +44,7 @@ return { -- Highlight, edit, and navigate code
                     max_lines = 1,
                 }
 
-                vim.keymap.set('n', '[c', function()
+                vim.keymap.set({'n', 'v'}, '[c', function()
                     ts_context.go_to_context(vim.v.count1)
                 end, { silent = true })
             end,
