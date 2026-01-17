@@ -1,5 +1,6 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'master',
     lazy = true,
     config = function()
         local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
