@@ -1,35 +1,26 @@
 return { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     build = ':TSUpdate',
-    branch = 'master',
-    opts = {
-        ensure_installed = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
-        -- Autoinstall languages that are not installed
-        auto_install = true,
-        highlight = {
-            enable = true,
-            -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-            --  If you are experiencing weird indenting issues, add the language to
-            --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-            additional_vim_regex_highlighting = { 'ruby' },
-        },
-        indent = { enable = true, disable = { 'ruby' } },
-
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = '<C-space>',
-                node_incremental = '<C-space>',
-                scope_incremental = false,
-                node_decremental = '<C-A-Space>',
-            },
-        },
-    },
     config = function(_, opts)
-        -- Prefer git instead of curl in order to improve connectivity in some environments
-        require('nvim-treesitter.install').prefer_git = true
-        ---@diagnostic disable-next-line: missing-fields
-        require('nvim-treesitter.configs').setup(opts)
+        local treesitter = require 'nvim-treesitter'
+        treesitter.setup()
+        treesitter.install { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+
+        -- Enable Treesitter highlighting.
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = { '<filetype>' },
+            callback = function()
+                vim.treesitter.start()
+            end,
+        })
+
+        -- Enable Treesitter folding.
+        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo[0][0].foldmethod = 'expr'
+
+        -- Enable Treesitter based indentation.
+        -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
         vim.filetype.add {
             extension = {

@@ -15,18 +15,10 @@ return {
         vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
         vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
 
-        require('nvim-treesitter.configs').setup {
+        require('nvim-treesitter-textobjects').setup {
             textobjects = {
                 swap = {
                     enable = true,
-                    swap_next = {
-                        ['<leader>lp'] = '@parameter.inner',
-                        ['<leader>lf'] = '@function.outer',
-                    },
-                    swap_previous = {
-                        ['<leader>Lp'] = '@parameter.inner',
-                        ['<leader>Lf'] = '@function.outer',
-                    },
                 },
                 move = {
                     enable = true,
@@ -103,5 +95,18 @@ return {
                 },
             },
         }
+        -- Swap
+        vim.keymap.set('n', '<leader>lp', function()
+            require('nvim-treesitter-textobjects.swap').swap_next '@parameter.inner'
+        end)
+        vim.keymap.set('n', '<leader>lf', function()
+            require('nvim-treesitter-textobjects.swap').swap_next '@function.outer'
+        end)
+        vim.keymap.set('n', '<leader>Lp', function()
+            require('nvim-treesitter-textobjects.swap').swap_previous '@parameter.inner'
+        end)
+        vim.keymap.set('n', '<leader>Lf', function()
+            require('nvim-treesitter-textobjects.swap').swap_previous '@function.outer'
+        end)
     end,
 }
