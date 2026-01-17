@@ -30,11 +30,16 @@ return { -- Highlight, edit, and navigate code
         require('nvim-treesitter.install').prefer_git = true
         ---@diagnostic disable-next-line: missing-fields
         require('nvim-treesitter.configs').setup(opts)
-        --
-        -- require('nvim-treesitter.configs').setup({
-        --
-        --
-        -- })
+
+        vim.filetype.add {
+            extension = {
+                container = 'toml',
+                service = 'toml',
+                mount = 'toml',
+                automount = 'toml',
+                network = 'toml',
+            },
+        }
     end,
     dependencies = {
         {
