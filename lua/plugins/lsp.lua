@@ -114,9 +114,7 @@ return { -- LSP Configuration & Plugins
         --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
         --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
         -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-        -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+        -- local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         --  Add any additional override configuration in the following tables. Available keys are:
         --  - cmd (table): Override the default command used to start the server
@@ -126,7 +124,6 @@ return { -- LSP Configuration & Plugins
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local server_configs = {
             basedpyright = {
-                capabilities = capabilities,
                 settings = {
                     basedpyright = {
                         typeCheckingMode = 'standard',
@@ -144,7 +141,6 @@ return { -- LSP Configuration & Plugins
                 filetypes = { 'text', 'tex', 'latex' },
             },
             clangd = {
-                -- capabilities = capabilities,
                 cmd = {
                     'clangd',
                     '--clang-tidy',
@@ -177,6 +173,10 @@ return { -- LSP Configuration & Plugins
             },
         }
 
+        for server_name, server_config in pairs(server_configs) do
+            vim.lsp.config(server_name, server_config)
+        end
+
         require('mason').setup()
 
         local ensure_installed = {
@@ -193,16 +193,7 @@ return { -- LSP Configuration & Plugins
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
         require('mason-lspconfig').setup {
-            handlers = {
-                function(server_name)
-                    local server = server_configs[server_name] or {}
-                    -- This handles overriding only values explicitly passed
-                    -- by the server configuration above. Useful when disabling
-                    -- certain features of an LSP (for example, turning off formatting for ts_ls)
-                    server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-                    vim.lsp.config(server_name, server)
-                end,
-            },
+            ensure_installed = {},
         }
     end,
 }
