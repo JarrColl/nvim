@@ -177,7 +177,12 @@ return { -- LSP Configuration & Plugins
             vim.lsp.config(server_name, server_config)
         end
 
-        require('mason').setup()
+        require('mason').setup {
+            registries = {
+                'github:mason-org/mason-registry',
+                'github:Crashdummyy/mason-registry',
+            },
+        }
 
         local ensure_installed = {
             -- Language Servers.
