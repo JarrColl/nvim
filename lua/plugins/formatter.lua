@@ -34,6 +34,7 @@ return {
             html = { 'prettierd' },
             json = { 'prettierd' },
             yaml = { 'prettierd' },
+            vue = { 'prettierd' },
             xml = { 'xmlformatter' },
         },
     },
