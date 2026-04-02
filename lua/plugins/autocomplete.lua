@@ -1,4 +1,3 @@
-# TODO: Decide if I am even using snippets, if not, remove the plugins.
 return {
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -73,19 +72,15 @@ return {
         snippets = { preset = 'default' },
 
         signature = { enabled = true },
-    },
 
-    fuzzy = { implementation = 'prefer_rust_with_warning' },
+        fuzzy = { implementation = 'prefer_rust_with_warning' },
 
-    -- allows extending the providers array elsewhere in your config
-    -- without having to redefine it
-    -- opts_extend = { 'sources.default' },
+        completion = {
+            accept = { auto_brackets = { enabled = true } },
 
-    completion = {
-        accept = { auto_brackets = { enabled = true } },
-
-        -- By default, you may press `<c-space>` to show the documentation.
-        -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+            -- By default, you may press `<c-space>` to show the documentation.
+            -- Optionally, set `auto_show = true` to show the documentation after a delay.
+            documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        },
     },
 }

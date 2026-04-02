@@ -19,9 +19,6 @@ require('lazy').setup({
     --  This is equivalent to:
     --    require('Comment').setup({})
 
-    -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim', event = 'VeryLazy', opts = {} },
-
     -- This is often very useful to both group configuration, as well as handle
     -- lazy loading plugins that don't need to be loaded immediately at startup.
     --
