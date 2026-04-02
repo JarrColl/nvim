@@ -4,23 +4,17 @@
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+vim.o.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
--- vim.opt.clipboard = 'unnamedplus'
 
-vim.opt.wrap = false
+vim.o.wrap = false
 
 -- Turn off insert comment on new line.
 -- vim.cmd "set formatoptions-=cro"
@@ -29,59 +23,59 @@ vim.opt.wrap = false
 -- -vim.opt.formatoptions:remove "o"
 
 -- Enable break indent for wrapped text
-vim.opt.breakindent = true
+vim.o.breakindent = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = false
 
 -- vim.opt.autoindent = true
-vim.opt.smartindent = true
+vim.o.smartindent = true
 
 -- Replace swap files with undo history
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.o.swapfile = false
+vim.o.backup = false
 
 -- Save undo history
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
-vim.opt.undofile = true
+vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.o.undofile = true
 
 -- Highlight all search results. These are on by default.
 -- vim.opt.hlsearch = true
 -- vim.opt.incsearch = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.o.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
+vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.o.scrolloff = 10
