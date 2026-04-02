@@ -40,7 +40,7 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 -- Replace swap files with undo history
-vim.opt.swapfile = false --TODO: Should I remove these two lines or not?
+vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Save undo history
@@ -85,4 +85,3 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-

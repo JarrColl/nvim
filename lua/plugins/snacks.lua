@@ -59,7 +59,6 @@ return {
         { "<leader>sM", function() Snacks.picker.man() end, desc = "[S]earch [M]an Pages" },
 
         -- ######### LSP ########
-        picker = {},
         { "gd", function() Snacks.picker.lsp_definitions() end, desc = "[G]oto [D]efinition" },
         { "gD", function() Snacks.picker.lsp_declarations() end, desc = "[G]oto [D]eclaration" },
         { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "[G]oto [R]eferences" },

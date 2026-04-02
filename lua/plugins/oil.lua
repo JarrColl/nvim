@@ -1,3 +1,5 @@
+local detail = false
+
 return {
     'stevearc/oil.nvim',
     ---@module 'oil'

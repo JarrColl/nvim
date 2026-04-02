@@ -14,7 +14,7 @@ return {
     opts = {
         notify_on_error = false,
         format_on_save = function(bufnr)
-            local enable_filetypes = { lua = true }
+            local enable_filetypes = { lua = true, python = true }
             if enable_filetypes[vim.bo[bufnr].filetype] then
                 return {
                     timeout_ms = 500,
@@ -26,10 +26,8 @@ return {
         end,
         formatters_by_ft = {
             lua = { 'stylua' },
-            --python = { 'ruff' },
-            python = { 'isort', 'black' },
+            python = { 'ruff_check', 'ruff_format' },
             javascript = { 'prettierd' },
-            -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
             css = { 'prettierd' },
             html = { 'prettierd' },
             json = { 'prettierd' },
