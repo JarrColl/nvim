@@ -1,1 +1,1 @@
-sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
+sudo dnf install -y gcc make git ripgrep fd-find unzip neovim tree-sitter-cli

@@ -1,24 +1,8 @@
---[[
-    If you don't know anything about Lua, I recommend taking some time to read through
-    a guide. One possible example which will only take 10-15 minutes:
-      - https://learnxinyminutes.com/docs/lua/
-
-    After understanding a bit more about Lua, you can use `:help lua-guide` as a
-    reference for how Neovim integrates Lua.
-    - :help lua-guide
-    - (or HTML version): https://neovim.io/doc/user/lua-guide.html
-Kickstart Guide:
-
-  TODO: The very first thing you should do is to run the command `:Tutor` in Neovim.
-
-  Next, run AND READ `:help`.
-    This will open up a help window with some basic information
-    about reading, navigating and searching the builtin help documentation.
---]]
-
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+-- TODO: Update to vim.pack the built in package manager. (also vim.loader.enable with this)
+-- nvim autocomplete option built in, investigate it. Or stick with blink.cmp
+-- Keep an eye on the ui2 improved interface.
+-- v_an and v_in new commands, investigate.
+-- look into treesitter folds feature.
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -36,5 +20,3 @@ require 'config.lazyInit'
 require 'config.commands'
 
 require 'config.colourscheme'
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
