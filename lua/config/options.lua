@@ -41,6 +41,9 @@ vim.o.backup = false
 vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.o.undofile = true
 
+-- If a file has changed and there are no unsaved changes, auto read it without a warning.
+vim.o.autoread = true
+
 -- Highlight all search results. These are on by default.
 -- vim.opt.hlsearch = true
 -- vim.opt.incsearch = true
