@@ -33,7 +33,7 @@ vim.o.swapfile = false -- Replace swap files with undo history
 vim.o.backup = false
 
 vim.o.undofile = true -- Save undo history
-vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.o.undodir = vim.fn.stdpath 'data' .. '/undodir'
 vim.o.autoread = true -- If a file has changed and there are no unsaved changes, auto read it without a warning.
 
 -- # Search Settings
