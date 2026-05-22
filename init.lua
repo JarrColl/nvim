@@ -1,6 +1,5 @@
 -- TODO: Update to vim.pack the built in package manager. (also vim.loader.enable with this)
 -- nvim autocomplete option built in, investigate it. Or stick with blink.cmp
--- Keep an eye on the ui2 improved interface.
 -- v_an and v_in new commands, investigate.
 -- look into treesitter folds feature.
 vim.g.mapleader = ' '
