@@ -206,8 +206,7 @@ return { -- LSP Configuration & Plugins
             -- Formatters & Tools.
             'stylua',
             'prettierd',
-            'black',
-            'isort',
+            'ruff',
         }
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

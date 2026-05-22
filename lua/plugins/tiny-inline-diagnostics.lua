@@ -4,9 +4,7 @@ return {
         'rachartier/tiny-inline-diagnostic.nvim',
         -- event = 'LspAttach',
         -- event = 'VimEnter',
-        -- event = 'VeryLazy',
-
-        priority = 9999,
+        event = 'VeryLazy',
         config = function()
             require('tiny-inline-diagnostic').setup {
                 virt_texts = {
