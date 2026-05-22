@@ -1,23 +1,9 @@
-local branch = ''
-local textobjects_name = ''
-local config_name = ''
-
-if vim.fn.has 'nvim-0.12' == 1 then
-    branch = 'main'
-    textobjects_name = 'nvim-treesitter-textobjects.repeatable_move'
-    config_name = 'nvim-treesitter.config'
-else
-    branch = 'master'
-    textobjects_name = 'nvim-treesitter.textobjects.repeatable_move'
-    config_name = 'nvim-treesitter.configs'
-end
-
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    branch = branch,
+    branch = 'main',
     lazy = true,
     config = function()
-        local ts_repeat_move = require(textobjects_name)
+        local ts_repeat_move = require 'nvim-treesitter-textobjects.repeatable_move'
 
         -- vim way: ; goes to the direction you were moving.
         vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
@@ -29,7 +15,7 @@ return {
         vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
         vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
 
-        require(config_name).setup {
+        require('nvim-treesitter.config').setup {
             textobjects = {
                 swap = {
                     enable = true,

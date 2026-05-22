@@ -3,7 +3,6 @@ return { -- LSP Configuration & Plugins
     dependencies = {
         -- Automatically install LSPs and related tools to stdpath for Neovim
         { 'mason-org/mason.nvim', opts = {} }, -- NOTE: Must be loaded before dependants
-        'mason-org/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
 
         -- Useful status updates for LSP.
@@ -201,7 +200,7 @@ return { -- LSP Configuration & Plugins
         local ensure_installed = {
             -- Language Servers.
             'basedpyright',
-            'lua_ls',
+            'lua-language-server',
 
             -- Formatters & Tools.
             'stylua',
@@ -209,9 +208,5 @@ return { -- LSP Configuration & Plugins
             'ruff',
         }
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-        require('mason-lspconfig').setup {
-            ensure_installed = {},
-        }
     end,
 }
