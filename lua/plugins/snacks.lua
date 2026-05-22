@@ -6,6 +6,7 @@ return {
         picker = {}, --TODO: Config some picker keys like ctrl-enter to re-search, and change scroll to c-d and c-u?
         bigfile = {},
         quickfile = {},
+        indent = { scope = { enabled = false } },
         -- scroll = {},
         -- zen = {
         --     toggles = {
