@@ -1,7 +1,5 @@
--- Easily hit escape in terminal mode.
--- vim.keymap.set('t', '<ESC><ESC>', '<c-\\><c-n>')
-vim.keymap.set('t', '<c-Space>[', '<c-\\><c-n>')
--- vim.keymap.set('t', '<c-\\><c-\\>', '<c-\\><c-n>')
+-- Exit terminal mode with <A-q>. Single chord, no <Esc> timeout against fish vi-mode.
+vim.keymap.set('t', '<A-q>', '<C-\\><C-n>')
 
 local state = {
     window = {
