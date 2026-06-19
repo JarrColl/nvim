@@ -206,6 +206,7 @@ return { -- LSP Configuration & Plugins
                     },
                 },
             },
+            ruff = {},
         }
 
         for server_name, server_config in pairs(server_configs) do
