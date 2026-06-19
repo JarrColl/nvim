@@ -34,7 +34,7 @@ return { -- highlight, edit, and navigate code
         }
 
         -- ensure basic parser are installed
-        local parsers = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+        local parsers = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vue', 'css', 'scss', 'typescript', 'javascript' }
         require('nvim-treesitter').install(parsers)
 
         ---@param buf integer
