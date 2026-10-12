@@ -25,16 +25,37 @@ return { -- highlight, edit, and navigate code
     config = function()
         vim.filetype.add {
             extension = {
-                container = 'toml',
-                service = 'toml',
-                mount = 'toml',
-                automount = 'toml',
-                network = 'toml',
+                container = 'systemd',
+                service = 'systemd',
+                mount = 'systemd',
+                automount = 'systemd',
+                network = 'systemd',
+                inc = 'bitbake',
             },
         }
+        vim.treesitter.language.register('ini', 'systemd')
 
         -- ensure basic parser are installed
-        local parsers = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vue', 'css', 'scss', 'typescript', 'javascript' }
+        local parsers = {
+            'python',
+            'bash',
+            'c',
+            'diff',
+            'html',
+            'lua',
+            'luadoc',
+            'markdown',
+            'markdown_inline',
+            'query',
+            'vim',
+            'vimdoc',
+            'vue',
+            'css',
+            'scss',
+            'typescript',
+            'javascript',
+            'ini',
+        }
         require('nvim-treesitter').install(parsers)
 
         ---@param buf integer
@@ -49,13 +70,12 @@ return { -- highlight, edit, and navigate code
 
             -- enables treesitter based folds
             -- for more info on folds see `:help folds`
-            -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            -- vim.wo.foldmethod = 'expr'
-            -- vim.wo.foldlevel = 99 -- Start with all folds open
-            -- vim.wo.foldlevelstart = 99
+            -- vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            -- vim.wo[0][0].foldmethod = 'expr'
+            -- vim.wo[0][0].foldlevel = 99 -- Start with all folds open
 
             -- enables treesitter based indentation
-            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
 
         local available_parsers = require('nvim-treesitter').get_available()
