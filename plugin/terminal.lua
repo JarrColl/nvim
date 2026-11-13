@@ -1,5 +1,5 @@
 -- Exit terminal mode with <A-q>. Single chord, no <Esc> timeout against fish vi-mode.
-vim.keymap.set('t', '<A-q>', '<C-\\><C-n>')
+-- vim.keymap.set('t', '<A-q>', '<C-\\><C-n>')
 
 local state = {
     window = {
@@ -55,7 +55,8 @@ vim.api.nvim_create_user_command('SplitTerm', function()
 end, {})
 
 -- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set({ 'n', 'i', 't', 'v' }, '<c-\\>', '<cmd>SplitTerm<CR>', { remap = true })
+-- vim.keymap.set({ 'n', 'i', 't', 'v' }, '<c-\\>', '<cmd>SplitTerm<CR>', { remap = true })
+vim.keymap.set({ 'n', 'i', 't', 'v' }, '<a-\\>', '<cmd>SplitTerm<CR>', { remap = true })
 -- Terminal Maps
 -- local set = vim.opt_local
 --
