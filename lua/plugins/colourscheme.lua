@@ -35,6 +35,14 @@ return {
             }
         end,
     },
+    {
+        'dchinmay2/alabaster.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.alabaster_floatborder = true
+        end,
+    },
     -- { 'rose-pine/neovim', name = 'rose-pine', priority = 999 },
     -- {
     --     'catppuccin/nvim',
